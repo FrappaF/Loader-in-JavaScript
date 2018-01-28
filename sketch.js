@@ -81,6 +81,7 @@ function draw() {
 
 function windowResized() {
   noLoop();
+  t = 0;
   resizeCanvas(windowWidth - 25, windowHeight - 25);
   if (width > height){
     radius = height - 20;
