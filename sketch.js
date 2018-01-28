@@ -8,7 +8,7 @@ let myDegrees;
 var lines = [];
 let turns = 10;
 let t = 0;
-let fps = 60;
+let fps;
 let stop;
 let secondDegrees;
 let mainC;
@@ -24,10 +24,12 @@ function setup() {
   if (width > height){
     radius = height - 20;
     people = floor((height * 200) / 920);
+    fps = floor((height * 60) / 920);
   }
   else{
     radius = width - 20;
     people = floor((width * 200) / 1895);
+    fps = floor((width * 60) / 1895);
   }
 
   for(var i = 0; i < people; i++){
@@ -86,15 +88,19 @@ function windowResized() {
   if (width > height){
     radius = height - 20;
     people = floor((height * 200) / 920);
+    fps = floor((height * 60) / 920);
   }
   else{
     radius = width - 20;
     people = floor((width * 200) / 1895);
+    fps = floor((width * 60) / 1895);
   }
+  
   lines.length = 0;
   for(var i = 0; i < people; i++){
     lines.push(new Lines(mainC));
   }
+
   loop();
 }
 
